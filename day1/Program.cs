@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 
 namespace Books
 {
@@ -28,14 +29,15 @@ namespace Books
             Person tHorman = new Person("Thomas", "H. Cormen", "male");
             Educational e2 = new Educational("Introduction to Algorithms", tHorman, "computer science", "The Massachusetts Institute of Technology", 2, 120002, "9781235754393", "intermediate");
 
+            List<Novel> novel = new List<Novel> { n1, n2, n3 };
+            List<Drama> drama = new List<Drama> { d1, d2 };
+            List<Educational> edu = new List<Educational> { e1, e2 };
+
 
             Readers r1 = new Readers("Talia", "Huang", "female");
             Readers r2 = new Readers("Allison", "Blaese", "female");
             Readers r3 = new Readers("Jackob", "Bonilla", "male");
-
-
-            n3.Info();
-            d2.Info();
+            List<Readers> r = new List<Readers> { r1, r2, r3 };
             r1.Read(n1, 5);
             r1.Read(d1, 3.2);
             r1.Read(n3, 5);
@@ -47,12 +49,57 @@ namespace Books
             r3.Read(d1, 4.6);
             r3.Read(n2, 3.2);
 
-            Console.WriteLine("\n {0} {1} has read these books: \n",r2.name, r2.lastname);
-            r2.PrintReadTitles();
+            Console.WriteLine("List of all novels: {0}, {1}, {2}\n", n1.name, n2.name, n3.name);
+            Console.WriteLine("List of all dramas: {0}, {1}\n", d1.name, d2.name);
+            Console.WriteLine("List of all educations: {0}, {1}\n", e1.name, e2.name);
+
+            Console.WriteLine("Do you want info about one of the books? Y/N");
+
+            string user1 = Console.ReadLine();
+
+            while (user1 != "n" && user1 != "N") { 
+    
+                Console.WriteLine("Is book a novel, drama or educational?");
+                string user2 = Console.ReadLine();
+                Console.WriteLine("What is the name of the book?");
+                string user3 = Console.ReadLine();
+
+                if (user2 == "novel" || user2 == "Novel" || user2 == "NOVEL")
+                {
+                    foreach(Novel n in novel) { if (n.name == user3) n.Info(); }
+                }
+                if (user2 == "drama" || user2 == "Drama" || user2 == "DRAMA")
+                {
+                    foreach (Drama n in drama) { if (n.name == user3) n.Info(); }
+                }
+                if (user2 == "educational" || user2 == "Educational" || user2 == "EDUCATIONAL")
+                {
+                    foreach (Educational n in edu) { if (n.name == user3) n.Info(); }
+                }
+               
+                Console.WriteLine("Do you want info about one of the books? Y/N");
+
+                user1 = Console.ReadLine();
+            }
 
 
-            Console.WriteLine("\n {0} is rated as {1} \n", n3.name, n3.GetRate());
 
+            Console.WriteLine("\n List of readers: {0} {1}, {2} {3}, {4} {5}\n",r1.name,r1.lastname,r2.name, r2.lastname, r3.name, r3.lastname);
+
+            Console.WriteLine("Do you want to know what books specific reader read?Y/N");
+            string user4 = Console.ReadLine();
+
+            while (user4 != "n" && user4 != "N")
+            {
+                Console.WriteLine("enter first name of reader: ");
+                string user5 = Console.ReadLine();
+                Console.WriteLine("enter last name of reader: ");
+                string user6 = Console.ReadLine();
+
+                foreach (Readers n in r) { if (n.name == user5 && n.lastname == user6) n.PrintReadTitles(); }
+                Console.WriteLine("Do you want to know what books specific reader read?Y/N");
+                 user4 = Console.ReadLine();
+            }
 
         }
     }
