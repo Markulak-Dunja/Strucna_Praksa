@@ -4,16 +4,7 @@ using System.Text;
 
 namespace Books
 {
-    public class Person
-    {
-        public string name, lastname, gender;
-        public Person(string firstn, string lastn, string gen)
-        {
-            name = firstn;
-            lastname = lastn;
-            gender = gen;
-        }
-    }
+   
     public abstract class Book
     {
         public string name { get; }
