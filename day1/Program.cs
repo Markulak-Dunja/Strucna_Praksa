@@ -14,7 +14,7 @@ namespace Books
             Novel n2 = new Novel("THE AGE OF INNOCENCE", eWarthon, "Romance", " D. Appleton & Company", 4, 293, "9781547897410");
 
             Person Tolkein = new Person(" John Ronald Reuel", "Tolkien", "male");
-            Novel n3 = new Novel("THE LORD OF THE RINGS: THE FELLOWSIP OF THE RING)", Tolkein, "Fantasy", "Allen & Unwin", 4, 423, "9781123541875");
+            Novel n3 = new Novel("THE LORD OF THE RINGS: THE FELLOWSIP OF THE RING", Tolkein, "Fantasy", "Allen & Unwin", 4, 423, "9781123541875");
 
             Person Shakespeare = new Person("William", "Shakespeare", "male");
             Drama d1 = new Drama("HAMLET", Shakespeare, "Tragycomedy", "Simon & Schuster", 3, 500, "9781126710393");
@@ -32,7 +32,7 @@ namespace Books
             List<Novel> novel = new List<Novel> { n1, n2, n3 };
             List<Drama> drama = new List<Drama> { d1, d2 };
             List<Educational> edu = new List<Educational> { e1, e2 };
-
+            List<string> bookNames = new List<string> { n1.name, n2.name, n3.name, d1.name, d2.name, e1.name, e2.name };
 
             Readers r1 = new Readers("Talia", "Huang", "female");
             Readers r2 = new Readers("Allison", "Blaese", "female");
@@ -49,6 +49,7 @@ namespace Books
             r3.Read(d1, 4.6);
             r3.Read(n2, 3.2);
 
+
             Console.WriteLine("List of all novels: {0}, {1}, {2}\n", n1.name, n2.name, n3.name);
             Console.WriteLine("List of all dramas: {0}, {1}\n", d1.name, d2.name);
             Console.WriteLine("List of all educations: {0}, {1}\n", e1.name, e2.name);
@@ -61,22 +62,34 @@ namespace Books
     
                 Console.WriteLine("Is book a novel, drama or educational?");
                 string user2 = Console.ReadLine();
+                if (user2!="novel" && user2!= "drama" && user2 != "educational")
+                {
+                    throw new System.AggregateException("nonregular entry");
+                }                
+                
                 Console.WriteLine("What is the name of the book?");
                 string user3 = Console.ReadLine();
+                if (bookNames.Contains(user3))
+                {
 
-                if (user2 == "novel" || user2 == "Novel" || user2 == "NOVEL")
-                {
-                    foreach(Novel n in novel) { if (n.name == user3) n.Info(); }
+
+                    if (user2 == "novel" || user2 == "Novel" || user2 == "NOVEL")
+                    {
+                        foreach (Novel n in novel) { if (n.name == user3) n.Info(); }
+                    }
+                    if (user2 == "drama" || user2 == "Drama" || user2 == "DRAMA")
+                    {
+                        foreach (Drama n in drama) { if (n.name == user3) n.Info(); }
+                    }
+                    if (user2 == "educational" || user2 == "Educational" || user2 == "EDUCATIONAL")
+                    {
+                        foreach (Educational n in edu) { if (n.name == user3) n.Info(); }
+                    }
                 }
-                if (user2 == "drama" || user2 == "Drama" || user2 == "DRAMA")
+                else
                 {
-                    foreach (Drama n in drama) { if (n.name == user3) n.Info(); }
+                    throw new System.AggregateException("unknown name");
                 }
-                if (user2 == "educational" || user2 == "Educational" || user2 == "EDUCATIONAL")
-                {
-                    foreach (Educational n in edu) { if (n.name == user3) n.Info(); }
-                }
-               
                 Console.WriteLine("Do you want info about one of the books? Y/N");
 
                 user1 = Console.ReadLine();
