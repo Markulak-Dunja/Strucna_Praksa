@@ -31,8 +31,8 @@ namespace Books
 
         public override void Info()
         {
-            Console.WriteLine("name: {0} \n author: {1} \n publisher: {2} \n edition: {3}. edition \n field: {4}",
-                name, author, publisher, edition, field);
+            Console.WriteLine(" name: {0} \n author: {1} {2} \n publisher: {3} \n edition: {4}. edition \n field: {5}\n rate: {6}",
+                name, author.name,author.lastname, publisher, edition, field, GetRate());
             return;
         }
     }
