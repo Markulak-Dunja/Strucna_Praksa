@@ -14,7 +14,7 @@ namespace Books
             Novel n2 = new Novel("THE AGE OF INNOCENCE", eWarthon, "Romance", " D. Appleton & Company", 4, 293, "9781547897410");
 
             Person Tolkein = new Person(" John Ronald Reuel", "Tolkien", "male");
-            Novel n3 = new Novel("THE LORD OF THE RINGS, THE FELLOWSIP OF THE RING)", Tolkein, "Fantasy", "Allen & Unwin", 4, 423, "9781123541875");
+            Novel n3 = new Novel("THE LORD OF THE RINGS: THE FELLOWSIP OF THE RING)", Tolkein, "Fantasy", "Allen & Unwin", 4, 423, "9781123541875");
 
             Person Shakespeare = new Person("William", "Shakespeare", "male");
             Drama d1 = new Drama("HAMLET", Shakespeare, "Tragycomedy", "Simon & Schuster", 3, 500, "9781126710393");
