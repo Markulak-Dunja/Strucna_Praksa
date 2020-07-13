@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Books
 {
-   
+    
     public abstract class Book
     {
         public string name { get; }
@@ -12,7 +12,7 @@ namespace Books
         public Person author { get; }
         public string publisher, variation;
         public int edition, pageNum, numRates;
-        public double rate;
+        public double? rate;
 
 
         public Book(string name1, Person author1, string publisher1, int edition1, int pageNum1, string ISBN1)
@@ -38,17 +38,17 @@ namespace Books
         }
         public abstract void Info();
 
-        public double GetRate()
+        public double? GetRate()
         {
             if (numRates > 0)
             {
-                return rate / numRates;
+                return (double)rate / numRates;
 
             }
 
             else
                 Console.WriteLine("The book hasn't been rated yet");
-            return -1;
+            return rate;
 
         }
 
