@@ -14,7 +14,6 @@ namespace BookDay2.webapi.Controllers
 
 
         //POST
-        [HttpPost]
         [Route("api/create")]
 
         public HttpResponseMessage Post([FromBody] Book b)
@@ -24,7 +23,6 @@ namespace BookDay2.webapi.Controllers
         }
 
         //GET1
-        [HttpGet]
         [Route("api/get")]
 
         public HttpResponseMessage Get()
@@ -37,7 +35,6 @@ namespace BookDay2.webapi.Controllers
         }
 
         //GET2
-        [HttpGet]
         [Route("api/getAuthor")]
 
         public HttpResponseMessage GetAuthor([FromUri] string name1)
@@ -54,7 +51,6 @@ namespace BookDay2.webapi.Controllers
         }
 
         //PUT
-        [HttpPut]
         [Route("api/put")]
 
         //https://localhost:44384/api/put?name1=LOTR&name2=TwoTowers
@@ -72,7 +68,6 @@ namespace BookDay2.webapi.Controllers
         }
 
         //DEL
-        [HttpDelete]
         [Route("api/del")]
 
         public IHttpActionResult Delete([FromBody] Book b1)
