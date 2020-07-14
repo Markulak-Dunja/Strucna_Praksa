@@ -10,7 +10,7 @@ namespace BookDay2.webapi.Controllers
 {
     public class TheController : ApiController
     {
-        public List<Book> bookList = new List<Book>() { new Book("LOTR", "JRR Tolkein"), new Book("Hamlet", "W.Shakespeare"), new Book("Souls Trilogy", "Deborah Harkness") };
+        static public List<Book> bookList = new List<Book>() { new Book("LOTR", "JRR Tolkein"), new Book("Hamlet", "W.Shakespeare"), new Book("Souls Trilogy", "Deborah Harkness") };
 
 
         //POST
