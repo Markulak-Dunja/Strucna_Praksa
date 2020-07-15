@@ -205,7 +205,7 @@ namespace HotlsDay3.webapi.Controllers
             }
         }
 
-        //POST:Hotel
+        //POST:Guest
         [Route("api/newGuest")]
         public HttpResponseMessage NewGuest([FromBody] Guest guest)
         {
@@ -222,7 +222,7 @@ namespace HotlsDay3.webapi.Controllers
                     command.Parameters.AddWithValue("@GuestId", guest.GuestId);
                     command.Parameters.AddWithValue("@FirstName", guest.FirstName);
                     command.Parameters.AddWithValue("@LastName", guest.LastName);
-                    command.Parameters.AddWithValue("@Birthday", guest.Birthday);
+                    command.Parameters.AddWithValue("@Birthday", Convert.ToDateTime(guest.Birthday));
                     command.Parameters.AddWithValue("@FullAddress", guest.FullAddress);
                     command.Parameters.AddWithValue("@Phone", guest.Phone);
                     command.ExecuteNonQuery();
@@ -275,6 +275,7 @@ namespace HotlsDay3.webapi.Controllers
             }
         }
 
+//TO DO: Popunit sve CRUD metode za sve klase
 
 
 
