@@ -1,0 +1,104 @@
+USE [hotels]
+GO
+
+
+CREATE TABLE Hotel (
+	HotelId INT PRIMARY KEY,
+	HotelName VARCHAR(25) NOT NULL,
+	FullAddress VARCHAR(40) NOT NULL,
+	Phone VARCHAR(15) NOT NULL,
+	Email VARCHAR(20) NOT NULL,
+	NumberOfRooms INT NOT NULL,
+	CanCheckIn TIME NOT NULL,
+	MustCheckOut TIME NOT NULL,
+	NightPrice FLOAT NOT NULL);
+
+CREATE TABLE Guest (
+	GuestId INT  PRIMARY KEY,
+	FirstName VARCHAR(15) NOT NULL,
+	LastName VARCHAR (20) NOT NULL,
+	DateOfBirth DATE NOT NULL,
+	FullAddress VARCHAR (40) NOT NULL,
+	Phone VARCHAR(15) NOT NULL
+
+);
+
+CREATE TABLE Visit(
+	CheckIn DATETIME NOT NULL,
+	CheckOut DATETIME NOT NULL,
+	HotelId INTEGER  
+		REFERENCES Hotel(HotelId) NOT NULL,
+	GuestID INTEGER
+		REFERENCES Guest(GuestId) NOT NULL,
+
+	PRIMARY KEY (HotelId,GuestId,CheckIn)
+);
+
+
+INSERT INTO Hotel VALUES(1,'Hotel Osijek','Samacka 4,Osijek','031 230 333','hosijek@gmail.com',35,'13:00','11:00',800);
+INSERT INTO Hotel VALUES(2,'Hotel Dubrovnik Palace','Masarykov put 20,Dubrovnik','020 198 789','hdubrovnik@gmail.com',20,'14:00','12:00',850);
+INSERT INTO Hotel VALUES(3,'Smart Selection Hotel','Maršala Tita 143,Opatija','052 666 741','hopatija@gmail.com',24,'14:00','11:00',740);
+INSERT INTO Hotel VALUES(4,'Hotel Donat','Majstora Radovana 7, Zadar','023 011 255','hzadar@gmail.com',30,'15:00','10:00',760);
+INSERT INTO Hotel VALUES(5,'Esplanade Zagreb Hotel','Mihanovićeva 1, Donji Grad, Zagreb','01 212 314','hzagreb@gmail.com',36,'15:00','12:00',850);
+
+SET DATEFORMAT dmy;  
+
+INSERT INTO Guest VALUES(11,'Rebeka','Milas','21-3-1995','Gundulićeva 11, Osijek','0954548790');
+INSERT INTO Guest VALUES(12,'Marija','Kompar','11-4-1986','Slavonska Avenija 11, Zagreb','0985614256');
+INSERT INTO Guest VALUES(13,'Imanuel','Knez','24-8-1955','Bartola Kašića 14, Pula','0912312315')
+INSERT INTO Guest VALUES(21,'Josip','Hranjak','10-5-1966','Jablanska 24, Vinkovci','0952322415');
+INSERT INTO Guest VALUES(22,'Mihael','Runje','12-7-1972','J.J. Strossmayera 48, Varaždin','0911123337');
+INSERT INTO Guest VALUES(23,'Marin','Galić','2-2-1953','Osječka 5, Split','0914118162');
+INSERT INTO Guest VALUES(31,'Emma','Rid','15-9-1983','Ulica Bartula Kašića, Trpanj','0987735315');
+INSERT INTO Guest VALUES(32,'Ena','Trdik','7-5-1976','Vukovarska 100, Daruvar','0985927771');
+INSERT INTO Guest VALUES(33,'Janja','Majek','2-2-1955','Vukovarska 111, Osijek','0932457419');
+INSERT INTO Guest VALUES(41,'Dražen','Bijelina','30-9-1963','Primorska 23, Sisak','0911256541');
+INSERT INTO Guest VALUES(42,'Donat','Dali','21-4-1955','Vukanska 23, Buje','0955034444');
+INSERT INTO Guest VALUES(43,'Darin','Dali','12-12-1999','Vukanska 23, Buje','092577731');
+INSERT INTO Guest VALUES(51,'Marjana','Sik','1-10-1962','Kozjačka 9, Krapina','0976898915');
+INSERT INTO Guest VALUES(52,'Sara','Sam','22-6-1954','Mlinska 4, Daruvar','0952321115');
+INSERT INTO Guest VALUES(53,'Sara','Mrso','11-12-1969','Daruvarska 1a, Karlovac','0952321115');
+
+
+INSERT INTO VISIT VALUES('1-3-2019 15:00','7-3-2019 9:00',1,11);
+INSERT INTO VISIT VALUES('2-6-2019 15:00','11-6-2019 10:00',1,12);
+INSERT INTO VISIT VALUES('1-8-2019 16:00','12-8-2019 8:00',1,13);
+
+INSERT INTO VISIT VALUES('1-6-2019 15:00','10-6-2019 9:00',2,21);
+INSERT INTO VISIT VALUES('2-7-2019 15:00','11-7-2019 10:00',2,22);
+INSERT INTO VISIT VALUES('14-8-2019 15:00','28-8-2019 9:00',2,23);
+
+INSERT INTO VISIT VALUES('11-7-2019 15:00','15-7-2019 9:00',3,31);
+INSERT INTO VISIT VALUES('25-6-2019 15:00','4-7-2019 10:00',3,32);
+INSERT INTO VISIT VALUES('1-8-2019 16:00','12-8-2019 8:00',3,33);
+
+INSERT INTO VISIT VALUES('15-8-2019 15:00','25-8-2019 9:00',4,41);
+INSERT INTO VISIT VALUES('23-6-2019 15:00','10-7-2019 10:00',4,42);
+INSERT INTO VISIT VALUES('11-8-2019 16:00','15-8-2019 8:00',4,43);
+
+INSERT INTO VISIT VALUES('1-3-2019 15:00','7-3-2019 9:00',5,51);
+INSERT INTO VISIT VALUES('2-2-2019 15:00','5-2-2019 10:00',5,52);
+INSERT INTO VISIT VALUES('14-12-2019 16:00','20-12-2019 8:00',5,53);
+
+GO
+
+CREATE OR ALTER PROCEDURE ProcVisit 
+(@checkIn DATETIME,@checkOut  DATETIME, @firstName  VARCHAR, @lastName  VARCHAR, @hotel VARCHAR) AS
+DECLARE @counterVisits INTEGER;
+BEGIN
+	INSERT INTO Visit VALUES(@checkIn,@checkIn,(SELECT HotelId FROM Hotel WHERE HotelName=@hotel ),
+	(SELECT GuestId FROM Guest WHERE FirstName=@firstName AND LastName=@lastName))
+END;
+
+SET DATEFORMAT dmy;  
+
+EXEC ProcVisit @checkIn='14-12-2019 16:00',
+			   @checkOut='16-12-2019 11:00',
+			   @firstName='Rebeka',
+			   @lastName='Milas',
+			   @hotel='Hotel Donat';
+
+SELECT * FROM Visit;
+
+SET DATEFORMAT dmy;  
+DELETE FROM Visit WHERE HotelId=1 AND guestId=12 AND CheckIn=CONVERT(DATETIME,'2-6-2019 15:00');
