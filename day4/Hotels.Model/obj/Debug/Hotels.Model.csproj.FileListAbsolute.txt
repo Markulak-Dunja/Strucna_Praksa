@@ -7,3 +7,12 @@ C:\Users\dunja\source\repos\Hotels\Hotels.Model\obj\Debug\Hotels.Model.csproj.Co
 C:\Users\dunja\source\repos\Hotels\Hotels.Model\obj\Debug\Hotels.Model.csproj.CopyComplete
 C:\Users\dunja\source\repos\Hotels\Hotels.Model\obj\Debug\Hotels.Model.dll
 C:\Users\dunja\source\repos\Hotels\Hotels.Model\obj\Debug\Hotels.Model.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\obj\Debug\Hotels.Model.csprojAssemblyReference.cache
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\obj\Debug\Hotels.Model.csproj.CoreCompileInputs.cache
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\obj\Debug\Hotels.Model.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\obj\Debug\Hotels.Model.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\bin\Debug\Hotels.Model.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\bin\Debug\Hotels.Model.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\bin\Debug\Hotels.Model.Common.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\bin\Debug\Hotels.Model.Common.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model\obj\Debug\Hotels.Model.csproj.CopyComplete

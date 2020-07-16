@@ -7,7 +7,7 @@ using Hotels.Model.Common;
 
 namespace Hotels.Model
 {
-    public class Hotel:Ihotel
+    public class Hotel:IHotel
     {
         public int HotelId { get; set; }
         public string HotelName { get; set; }

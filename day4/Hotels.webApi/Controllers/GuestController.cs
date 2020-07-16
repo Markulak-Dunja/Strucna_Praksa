@@ -1,0 +1,129 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using Hotels.Service;
+using Hotels.Model;
+using AutoMapper;
+
+namespace Hotels.webApi.Controllers
+{
+    public class GuestController : ApiController
+    {
+        HotelService TempServiceHotels = new HotelService();
+
+        //POST:Guest
+        [Route("api/newGuest")]
+        public HttpResponseMessage NewGuest([FromBody] GuestRest guest)
+        {
+            //Initialize the mapper
+            var config = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<GuestRest, Guest>()
+                );
+            var mapper = new Mapper(config);
+            Guest newGuest = mapper.Map<Guest>(guest);
+
+            if (TempServiceHotels.NewGuest(newGuest))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "Guest Added");
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            }
+        }
+
+        //PUT:Guest
+        [HttpPut]
+        [Route("api/UpdateGuestContact")]
+        public HttpResponseMessage UpdateGuestContact([FromBody] GuestRestContact guest)
+        {
+            //Initialize the mapper
+            var config = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<GuestRestContact, Guest>()
+                );
+            var mapper = new Mapper(config);
+            Guest newGuest = mapper.Map<Guest>(guest);
+
+            if (TempServiceHotels.UpdateGuestContact(newGuest,guest.Phone))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "Contact for "+guest.FirstName +" " + guest.LastName + " has been updated");
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            }
+        }
+
+        //DELETE:Guest
+        [Route("api/deleteGuest")]
+        public HttpResponseMessage DeleteGuest([FromBody] GuestRestBasicInfo guest)
+        {
+            //Initialize the mapper
+            var config = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<GuestRestBasicInfo, Guest>()
+                );
+            var mapper = new Mapper(config);
+            Guest newGuest = mapper.Map<Guest>(guest);
+
+            if (TempServiceHotels.DeleteGuest(newGuest))
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "Guest Deleted");
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            }
+        }
+    }
+    
+        
+   public class GuestRest
+    {
+        public int GuestId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Birthday { get; set; }
+        public string FullAddress { get; set; }
+        public string Phone { get; set; }
+        public GuestRest(string firstName, string lastName, string birthday, string fullAddress, string phone)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Birthday = birthday;
+            FullAddress = fullAddress;
+            Phone = phone;
+        }
+    }
+    public class GuestRestBasicInfo
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public GuestRestBasicInfo(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+    }
+
+    public class GuestRestContact
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Phone { get; set; }
+
+        public GuestRestContact(string firstName, string lastName,string phone)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Phone = phone;
+        }
+    }
+
+
+}

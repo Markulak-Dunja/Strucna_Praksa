@@ -4,7 +4,7 @@ using Hotels.Model.Common;
 
 namespace Hotels.Model
 {
-    public class Guest:Iguest
+    public class Guest:IGuest
     {
         public int GuestId { get; set; }
         public string FirstName { get; set; }

@@ -61,6 +61,26 @@ namespace Hotels.Repository
             }
         }
 
+        public bool UpdateGuestContact(Guest guest, string phone)
+        {
+            string sqlString =
+               "UPDATE Guest SET Phone=@phone WHERE FirstName=@firstName AND LastName=@lastName";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sqlString, connection))
+                {
+                    command.Parameters.AddWithValue("@firstName", guest.FirstName);
+                    command.Parameters.AddWithValue("@lastName", guest.LastName);
+                    command.Parameters.AddWithValue("@phone", phone);
+
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+            }
+
+        }
+
         public bool DeleteGuest(Guest guest)
         {
             string sqlString =
@@ -77,6 +97,26 @@ namespace Hotels.Repository
                 }
             }
         }
+        public bool DeleteVisit(Visit visit)
+        {
+            string sqlString =
+                   "DELETE FROM Visit WHERE HotelId=@hotelId AND guestId=@guestId AND CheckIn=@checkIn";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(sqlString, connection))
+                {
+                    command.Parameters.AddWithValue("@hotelId", visit.HotelId);
+                    command.Parameters.AddWithValue("@guestId", visit.GuestId);
+                    command.Parameters.AddWithValue("@checkIn", Convert.ToDateTime(visit.CheckIn));
+                    command.ExecuteNonQuery();
+
+                    return true;
+                }
+            }
+        }
+
+
 
 
 

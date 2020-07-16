@@ -11,3 +11,16 @@ C:\Users\dunja\source\repos\Hotels\Hotels.Repository\obj\Debug\Hotels.Repository
 C:\Users\dunja\source\repos\Hotels\Hotels.Repository\obj\Debug\Hotels.Repository.csproj.CopyComplete
 C:\Users\dunja\source\repos\Hotels\Hotels.Repository\obj\Debug\Hotels.Repository.dll
 C:\Users\dunja\source\repos\Hotels\Hotels.Repository\obj\Debug\Hotels.Repository.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Repository.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Repository.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Model.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Repository.Common.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Model.Common.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Model.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Repository.Common.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\bin\Debug\Hotels.Model.Common.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\obj\Debug\Hotels.Repository.csprojAssemblyReference.cache
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\obj\Debug\Hotels.Repository.csproj.CoreCompileInputs.cache
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\obj\Debug\Hotels.Repository.csproj.CopyComplete
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\obj\Debug\Hotels.Repository.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Repository\obj\Debug\Hotels.Repository.pdb

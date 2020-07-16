@@ -6,9 +6,14 @@ namespace Hotels.Repository.Common
 {
     public interface IHotelRepository
     {
-         List<Hotel> GetAllHotels();
+        #region Methods
+        List<Hotel> GetAllHotels();
          bool NewGuest(Guest guest);
          bool DeleteGuest(Guest guest);
+         bool UpdateGuestContact(Guest guest,string phone);
+         bool DeleteVisit(Visit visit);
 
+
+        #endregion Methods
     }
 }
