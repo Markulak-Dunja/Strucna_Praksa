@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C4D4259-4B66-4DBA-B1A0-85084AB81AA2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hotels.Service</RootNamespace>
+    <AssemblyName>Hotels.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HotelService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hotels.Model.Common\Hotels.Model.Common.csproj">
+      <Project>{7e682d03-5f4a-4593-9ac7-b0df33c711a1}</Project>
+      <Name>Hotels.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotels.Model\Hotels.Model.csproj">
+      <Project>{179c2c88-1895-49fb-a2b2-7a718c329172}</Project>
+      <Name>Hotels.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotels.Repository.Common\Hotels.Repository.Common.csproj">
+      <Project>{f85b34ef-2283-42bb-8b15-382f13d16b91}</Project>
+      <Name>Hotels.Repository.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotels.Repository\Hotels.Repository.csproj">
+      <Project>{7df10db9-87e4-4b40-8730-ccb84d1b57f7}</Project>
+      <Name>Hotels.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotels.Service.Common\Hotels.Service.Common.csproj">
+      <Project>{3428316c-a55c-4bef-af1f-5ca4526c8f39}</Project>
+      <Name>Hotels.Service.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

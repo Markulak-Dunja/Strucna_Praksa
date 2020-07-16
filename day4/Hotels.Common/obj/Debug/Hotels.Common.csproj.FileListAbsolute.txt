@@ -1,0 +1,6 @@
+C:\Users\dunja\source\repos\Hotels\Hotels.Common\bin\Debug\Hotels.Common.dll
+C:\Users\dunja\source\repos\Hotels\Hotels.Common\bin\Debug\Hotels.Common.pdb
+C:\Users\dunja\source\repos\Hotels\Hotels.Common\obj\Debug\Hotels.Common.csprojAssemblyReference.cache
+C:\Users\dunja\source\repos\Hotels\Hotels.Common\obj\Debug\Hotels.Common.csproj.CoreCompileInputs.cache
+C:\Users\dunja\source\repos\Hotels\Hotels.Common\obj\Debug\Hotels.Common.dll
+C:\Users\dunja\source\repos\Hotels\Hotels.Common\obj\Debug\Hotels.Common.pdb
