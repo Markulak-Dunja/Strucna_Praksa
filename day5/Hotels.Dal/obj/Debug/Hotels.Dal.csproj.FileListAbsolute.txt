@@ -1,0 +1,5 @@
+C:\Users\dunja\source\repos\Hotels\Hotels.Dal\bin\Debug\Hotels.Dal.dll
+C:\Users\dunja\source\repos\Hotels\Hotels.Dal\bin\Debug\Hotels.Dal.pdb
+C:\Users\dunja\source\repos\Hotels\Hotels.Dal\obj\Debug\Hotels.Dal.csproj.CoreCompileInputs.cache
+C:\Users\dunja\source\repos\Hotels\Hotels.Dal\obj\Debug\Hotels.Dal.dll
+C:\Users\dunja\source\repos\Hotels\Hotels.Dal\obj\Debug\Hotels.Dal.pdb

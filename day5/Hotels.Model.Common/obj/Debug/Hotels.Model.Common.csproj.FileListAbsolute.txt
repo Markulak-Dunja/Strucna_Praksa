@@ -1,0 +1,12 @@
+C:\Users\dunja\source\repos\Hotels\Hotels.Model.Common\bin\Debug\Hotels.Model.Common.dll
+C:\Users\dunja\source\repos\Hotels\Hotels.Model.Common\bin\Debug\Hotels.Model.Common.pdb
+C:\Users\dunja\source\repos\Hotels\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.csprojAssemblyReference.cache
+C:\Users\dunja\source\repos\Hotels\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.csproj.CoreCompileInputs.cache
+C:\Users\dunja\source\repos\Hotels\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.dll
+C:\Users\dunja\source\repos\Hotels\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\bin\Debug\Hotels.Model.Common.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\bin\Debug\Hotels.Model.Common.pdb
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.csprojAssemblyReference.cache
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.csproj.CoreCompileInputs.cache
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.dll
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.pdb

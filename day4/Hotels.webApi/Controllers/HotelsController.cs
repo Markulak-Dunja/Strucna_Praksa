@@ -40,32 +40,33 @@ namespace Hotels.webApi.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.OK, PrintHotels);
         }
-        
+
+
 
 
         [Route("api/newHotel")]
 
         public HttpResponseMessage NewHotel([FromBody] HotelRestAllInfo hotel)
-        {
-            //Initialize the mapperList
-            var configList = new MapperConfiguration(cfg =>
-                    cfg.CreateMap<HotelRestAllInfo, Hotel>()
-                );
+         {
+             //Initialize the mapperList
+             var configList = new MapperConfiguration(cfg =>
+                     cfg.CreateMap<HotelRestAllInfo, Hotel>()
+                 );
 
-            var mapper = new Mapper(configList);
-            Hotel HotelInfo = mapper.Map<Hotel>(hotel);
-            if (TempServiceHotels.NewHotel(HotelInfo))
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, "Hotel Added");
-            }
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
+             var mapper = new Mapper(configList);
+             Hotel HotelInfo = mapper.Map<Hotel>(hotel);
+             if (TempServiceHotels.NewHotel(HotelInfo))
+             {
+                 return Request.CreateResponse(HttpStatusCode.OK, "Hotel Added");
+             }
+             else
+             {
+                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-            }
-        }
-
+             }
     }
+
+}
 
         public class HotelRest
         {
