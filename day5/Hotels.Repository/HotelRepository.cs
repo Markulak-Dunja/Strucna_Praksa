@@ -14,7 +14,7 @@ namespace Hotels.Repository
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=hotels;Integrated Security=True";
 
 
-        public  Task<List<Hotel>> GetAllHotels()
+        public async Task<List<Hotel>> GetAllHotels()
         {
             List<Hotel> AllHotells = new List<Hotel>();
 
@@ -26,7 +26,7 @@ namespace Hotels.Repository
                     new SqlCommand(sqlString, connection);
                 connection.Open();
 
-                SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader =await Task.Run(() => command.ExecuteReader());
 
                 // Call Read before accessing data.
                 while (reader.Read())
@@ -38,11 +38,11 @@ namespace Hotels.Repository
                 connection.Close();
 
             }
-            return Task.FromResult(AllHotells);
+            return AllHotells;
         }
 
 
-        public Task<bool> NewHotel(Hotel hotel)
+        public async Task<bool> NewHotel(Hotel hotel)
         {
             string sqlString =
                 "INSERT INTO HOTEL VALUES(@HotelId,@HotelName,@FullAddress,@Phone,@Email,@NumberOfRooms,@CanCheckIn,@MustCheckOut,@NightPrice);";
@@ -62,14 +62,14 @@ namespace Hotels.Repository
                     command.Parameters.AddWithValue("@CanCheckIn", hotel.CanCheckIn);
                     command.Parameters.AddWithValue("@MustCheckOut", hotel.MustCheckOut);
                     command.Parameters.AddWithValue("@NightPrice", hotel.NightPrice);
-                    command.ExecuteNonQuery();
+                    await Task.Run(() => command.ExecuteNonQuery());
 
-                    return Task.FromResult(true);
+                    return true;
                 }
             }
         }
 
-        public Task<bool> NewGuest(Guest guest)
+        public async Task<bool> NewGuest(Guest guest)
         {
             string sqlString =
             "INSERT INTO Guest VALUES (@GuestId ,@FirstName,@LastName ,@Birthday,@FullAddress,@Phone);";
@@ -87,15 +87,15 @@ namespace Hotels.Repository
                     command.Parameters.AddWithValue("@Birthday", Convert.ToDateTime(guest.Birthday));
                     command.Parameters.AddWithValue("@FullAddress", guest.FullAddress);
                     command.Parameters.AddWithValue("@Phone", guest.Phone);
-                    command.ExecuteNonQuery();
+                    await Task.Run(() => command.ExecuteNonQuery());
 
 
-                    return Task.FromResult(true);
+                    return true;
                 }
             }
         }
 
-        public Task<bool> UpdateGuestContact(Guest guest, string phone)
+        public async Task<bool> UpdateGuestContact(Guest guest, string phone)
         {
             string sqlString =
                "UPDATE Guest SET Phone=@phone WHERE FirstName=@firstName AND LastName=@lastName";
@@ -108,14 +108,14 @@ namespace Hotels.Repository
                     command.Parameters.AddWithValue("@lastName", guest.LastName);
                     command.Parameters.AddWithValue("@phone", phone);
 
-                    command.ExecuteNonQuery();
+                    await Task.Run(() => command.ExecuteNonQuery());
 
-                    return Task.FromResult(true);
+                    return true;
                 }
             }
 
         }
-        public Task<List<Guest>> GetVisitForHotel(string hotel)
+        public async Task<List<Guest>> GetVisitForHotel(string hotel)
         {
             List<Guest> GuestInAHotel = new List<Guest>();
 
@@ -130,7 +130,8 @@ namespace Hotels.Repository
                 using (SqlCommand command =
                     new SqlCommand(sqlCommand, connection))
                 {
-                    SqlDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = await Task.Run(() => command.ExecuteReader());
+                    ;
 
                     while (reader.Read())
                     {
@@ -140,10 +141,10 @@ namespace Hotels.Repository
                     reader.Close();
                 }
             }
-            return Task.FromResult(GuestInAHotel);
+            return GuestInAHotel;
         }
 
-        public Task<bool> DeleteGuest(Guest guest)
+        public async Task<bool> DeleteGuest(Guest guest)
         {
             string sqlString =
                 "DELETE FROM Guest WHERE FirstName=@firstName AND LastName=@lastName";
@@ -154,13 +155,13 @@ namespace Hotels.Repository
                 {
                     command.Parameters.AddWithValue("@firstName", guest.FirstName);
                     command.Parameters.AddWithValue("@lastName", guest.LastName);
-                    command.ExecuteNonQuery();
+                    await Task.Run(() => command.ExecuteNonQuery());
 
-                    return Task.FromResult(true);
+                    return true;
                 }
             }
         }
-        public Task<bool> DeleteVisit(Visit visit)
+        public async Task<bool> DeleteVisit(Visit visit)
         {
             string sqlString =
                    "DELETE FROM Visit WHERE HotelId=(SELECT HotelId FROM Hotel WHERE HotelName=@hotel) AND guestId=(SELECT GuestId FROM GUEST WHERE FirstName=@firstName AND LastName=@lastName) AND CheckIn=@checkIn";
@@ -172,11 +173,11 @@ namespace Hotels.Repository
                     command.Parameters.AddWithValue("@firstName", visit.GuestFirstName);
                     command.Parameters.AddWithValue("@lastName", visit.GuestLastName);
                     command.Parameters.AddWithValue("@checkIn", Convert.ToDateTime(visit.CheckIn));
-                    command.ExecuteNonQuery();
+                    await Task.Run(() => command.ExecuteNonQuery());
 
                     connection.Close();
  
-                    return Task.FromResult(true);
+                    return true;
                 }
             }
         }
