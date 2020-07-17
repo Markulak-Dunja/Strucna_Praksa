@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Hotels.Repository.Common;
 using Hotels.Model;
+using Microsoft.SqlServer.Server;
 
 namespace Hotels.Repository
 {
     public class HotelRepository : IHotelRepository
     {
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=hotels;Integrated Security=True";
-        List<Hotel> AllHotells = new List<Hotel>();
+
 
         public List<Hotel> GetAllHotels()
         {
+            List<Hotel> AllHotells = new List<Hotel>();
 
             string sqlString = "SELECT* FROM Hotel;";
 
@@ -31,10 +33,39 @@ namespace Hotels.Repository
                 }
 
                 reader.Close();
+                connection.Close();
+
             }
             return AllHotells;
         }
 
+
+        public bool NewHotel(Hotel hotel)
+        {
+            string sqlString =
+                "INSERT INTO HOTEL VALUES(@HotelId,@HotelName,@FullAddress,@Phone,@Email,@NumberOfRooms,@CanCheckIn,@MustCheckOut,@NightPrice);";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(sqlString, connection))
+                {
+                    command.Parameters.AddWithValue("@HotelId", hotel.HotelId);
+                    command.Parameters.AddWithValue("@HotelName", hotel.HotelName);
+                    command.Parameters.AddWithValue("@FullAddress", hotel.FullAddress);
+                    command.Parameters.AddWithValue("@Phone", hotel.Phone);
+                    command.Parameters.AddWithValue("@Email", hotel.Email);
+                    command.Parameters.AddWithValue("@NumberOfRooms", hotel.NumberOfRooms);
+                    command.Parameters.AddWithValue("@CanCheckIn", hotel.CanCheckIn);
+                    command.Parameters.AddWithValue("@MustCheckOut", hotel.MustCheckOut);
+                    command.Parameters.AddWithValue("@NightPrice", hotel.NightPrice);
+                    command.ExecuteNonQuery();
+
+                    return true;
+                }
+            }
+        }
 
         public bool NewGuest(Guest guest)
         {
@@ -56,6 +87,7 @@ namespace Hotels.Repository
                     command.Parameters.AddWithValue("@Phone", guest.Phone);
                     command.ExecuteNonQuery();
 
+
                     return true;
                 }
             }
@@ -75,10 +107,38 @@ namespace Hotels.Repository
                     command.Parameters.AddWithValue("@phone", phone);
 
                     command.ExecuteNonQuery();
+
                     return true;
                 }
             }
 
+        }
+        public List<Guest> GetVisitForHotel(string hotel)
+        {
+            List<Guest> GuestInAHotel = new List<Guest>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sqlCommand = String.Format("SELECT * FROM Guest WHERE FirstName IN (SELECT FirstName FROM GUEST g INNER JOIN VISIT v ON (g.GuestId = v.GuestId) INNER JOIN Hotel h ON (v.HotelId = h.HotelId) " +
+                    " WHERE HotelName = '{0}' ) AND  LastName IN ( SELECT LastName FROM GUEST g INNER JOIN VISIT v ON (g.GuestId = v.GuestId) INNER JOIN Hotel h ON (v.HotelId = h.HotelId) " +
+                    "WHERE HotelName = '{0}' ); ", hotel);
+
+                using (SqlCommand command =
+                    new SqlCommand(sqlCommand, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        GuestInAHotel.Add(new Guest(Convert.ToInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString()));
+                    }
+
+                    reader.Close();
+                }
+            }
+            return GuestInAHotel;
         }
 
         public bool DeleteGuest(Guest guest)
@@ -93,6 +153,7 @@ namespace Hotels.Repository
                     command.Parameters.AddWithValue("@firstName", guest.FirstName);
                     command.Parameters.AddWithValue("@lastName", guest.LastName);
                     command.ExecuteNonQuery();
+
                     return true;
                 }
             }
@@ -100,17 +161,18 @@ namespace Hotels.Repository
         public bool DeleteVisit(Visit visit)
         {
             string sqlString =
-                   "DELETE FROM Visit WHERE HotelId=@hotelId AND guestId=@guestId AND CheckIn=@checkIn";
+                   "DELETE FROM Visit WHERE HotelId=(SELECT HotelId FROM Hotel WHERE HotelName=@hotel) AND guestId=(SELECT GuestId FROM GUEST WHERE FirstName=@firstName AND LastName=@lastName) AND CheckIn=@checkIn";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(sqlString, connection))
                 {
-                    command.Parameters.AddWithValue("@hotelId", visit.HotelId);
-                    command.Parameters.AddWithValue("@guestId", visit.GuestId);
+                    command.Parameters.AddWithValue("@firstName", visit.GuestFirstName);
+                    command.Parameters.AddWithValue("@lastName", visit.GuestLastName);
                     command.Parameters.AddWithValue("@checkIn", Convert.ToDateTime(visit.CheckIn));
                     command.ExecuteNonQuery();
 
+                    connection.Close();
                     return true;
                 }
             }
@@ -123,6 +185,7 @@ namespace Hotels.Repository
 
     }
 }
+
 
 
 

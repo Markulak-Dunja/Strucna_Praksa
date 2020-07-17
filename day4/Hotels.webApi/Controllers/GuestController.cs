@@ -58,6 +58,38 @@ namespace Hotels.webApi.Controllers
             }
         }
 
+        // GET: GuestPerHotel
+        [HttpGet]
+        [Route("api/VisitsInHotel")]
+        public HttpResponseMessage GetVisitForHotel([FromUri] string hotelName)
+        {
+            //Initialize the mapperList
+            var configList = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<Guest, GuestRestBasicInfo>()
+                );
+            List<Guest> GuestsInHotel = new List<Guest>(TempServiceHotels.GetVisitForHotel(hotelName));
+
+            List<GuestRestBasicInfo> PrintGuests = new List<GuestRestBasicInfo>();
+            if (GuestsInHotel.Count == 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "There are no Hotels");
+            }
+            var mapper = new Mapper(configList);
+            //ostavljen foreach jer mi se u automapp gubi info pronadem rijesenje za vikend
+            foreach(Guest guest in GuestsInHotel)
+            {
+                GuestRestBasicInfo guestBasic = mapper.Map<GuestRestBasicInfo>(guest);
+                PrintGuests.Add(guestBasic);
+            }
+
+            //List<GuestRestBasicInfo> printGuest = mapper.Map<List<GuestRestBasicInfo>>(TempServiceHotels.GetVisitForHotel(hotelName));
+
+
+            return Request.CreateResponse(HttpStatusCode.OK,PrintGuests);
+
+        }
+
+
         //DELETE:Guest
         [Route("api/deleteGuest")]
         public HttpResponseMessage DeleteGuest([FromBody] GuestRestBasicInfo guest)

@@ -1,16 +1,18 @@
 ﻿
 namespace Hotels.Model.Common
 {
-    public interface IVisit
+     public interface IVisit
     {
         #region Properties
 
-        string CheckIn { get; set; }
-        string CheckOut { get; set; }
-        int HotelId { get; set; }
-        int GuestId { get; set; }
+         string CheckIn { get; set; }
+         string CheckOut { get; set; }
+         string HotelName { get; set; }
+         string GuestFirstName { get; set; }
+         string GuestLastName { get; set; }
+         int TotalPrice { get; set; }
 
-       #endregion Properties
+        #endregion Properties
 
     }
 }

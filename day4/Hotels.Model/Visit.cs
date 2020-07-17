@@ -1,22 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using Hotels.Model.Common;
+﻿using Hotels.Model.Common;
 
 namespace Hotels.Model
 {
     public class Visit:IVisit
     {
+        # region Properties
         public string CheckIn { get; set; } 
         public string CheckOut { get; set; }
-        public int HotelId { get; set; }
-        public int GuestId { get; set; }
+        public string HotelName { get; set; }
+        public string GuestFirstName { get; set; }
+        public string GuestLastName { get; set; }
         public int TotalPrice { get; set; }
-        public Visit(string checkIn, string checkOut, int guestId, int hotelId)
+
+        #endregion Properties
+        
+        public Visit(string checkIn, string checkOut, string guestFirstName,string guestLastName,string hotelName)
         {
             CheckIn = checkIn;
             CheckOut = checkOut;
-            HotelId = hotelId;
-            GuestId = guestId;
+            HotelName = hotelName;
+            GuestFirstName = guestFirstName;
+            GuestLastName = guestLastName;
 
         }
 

@@ -196,3 +196,4 @@ C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.webApi\bin
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.webApi\bin\Hotels.Repository.pdb
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.webApi\bin\Hotels.Repository.Common.pdb
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.webApi\obj\Debug\Hotels.webApi.csproj.CopyComplete
+C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.webApi\bin\AutoMapper.Collection.dll
