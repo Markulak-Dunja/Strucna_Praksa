@@ -10,3 +10,10 @@ Making a WebApi in C# using a list insted of a Database
 ---day3---
 Making a WebApi in C# connected to Database
 (Entities/Classes:Hotel,Person,Visit)
+
+---day4---
+Multilayer architecture 
+(Model,WebApi,Service,Repository,Dal)
+
+--day5--
+Async and await added
