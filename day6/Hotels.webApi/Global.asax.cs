@@ -32,6 +32,8 @@ namespace Hotels.webApi
 
             var container = builder.Build();
 
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
         }
     }
     }
