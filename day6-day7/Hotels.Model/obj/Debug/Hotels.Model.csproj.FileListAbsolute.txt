@@ -25,3 +25,12 @@ C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Model
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.csproj.CopyComplete
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.dll
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\bin\Debug\Hotels.Model.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\bin\Debug\Hotels.Model.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\bin\Debug\Hotels.Model.Common.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\bin\Debug\Hotels.Model.Common.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.csprojAssemblyReference.cache
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.csproj.CoreCompileInputs.cache
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.csproj.CopyComplete
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model\obj\Debug\Hotels.Model.pdb

@@ -11,7 +11,7 @@ namespace Hotels.Repository
 {
     public class HotelRepository : IHotelRepository
     {
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=hotels;Integrated Security=True";
+        string connectionString = @"Data Source=KARABAST13;Initial Catalog=hotels;Integrated Security=True";
 
         public async Task<List<Hotel>> GetAllHotels()
         {

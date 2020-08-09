@@ -76,6 +76,7 @@ namespace Hotels.webApi.Controllers
 
     public class HotelRest
     {
+        public int HotelId { get; set; }
         public string HotelName { get; set; }
         public string FullAddress { get; set; }
         public decimal NightPrice { get; set; }
@@ -98,7 +99,9 @@ namespace Hotels.webApi.Controllers
         public string MustCheckOut { get; set; }
         public decimal NightPrice { get; set; }
 
-        public HotelRestAllInfo(string hotelName, string address, string phoneNumber, string email, int numOfRooms, string canCheckIn, string mustCheckOut, decimal nightPrice)
+        public HotelRestAllInfo(string hotelName, string address, string phoneNumber, 
+            string email, int numOfRooms, 
+            string canCheckIn, string mustCheckOut, decimal nightPrice)
         {
             HotelName = hotelName;
             FullAddress = address;

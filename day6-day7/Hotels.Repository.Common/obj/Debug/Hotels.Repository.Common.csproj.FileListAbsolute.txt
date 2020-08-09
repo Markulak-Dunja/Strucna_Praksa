@@ -42,3 +42,14 @@ C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Repos
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.csproj.CopyComplete
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.dll
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\bin\Debug\Hotels.Repository.Common.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\bin\Debug\Hotels.Repository.Common.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\bin\Debug\Hotels.Model.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\bin\Debug\Hotels.Model.Common.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\bin\Debug\Hotels.Model.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\bin\Debug\Hotels.Model.Common.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.csprojAssemblyReference.cache
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.csproj.CoreCompileInputs.cache
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.csproj.CopyComplete
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Repository.Common\obj\Debug\Hotels.Repository.Common.pdb

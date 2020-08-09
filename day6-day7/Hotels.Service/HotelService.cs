@@ -12,8 +12,8 @@ namespace Hotels.Service
 {
     public class HotelService: IHotelsService
     {
-        int counterGuest = 55;
-        int counterHotel = 55;
+        static int counterGuest = 55;
+        static int counterHotel = 55 ;
 
         public HotelService(IHotelRepository repository)
         {

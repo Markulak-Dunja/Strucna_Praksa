@@ -10,3 +10,9 @@ C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Comm
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.csproj.CoreCompileInputs.cache
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.dll
 C:\Users\dunja\source\repos\Markulak-Dunja\Strucna_Praksa\day4\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model.Common\bin\Debug\Hotels.Model.Common.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model.Common\bin\Debug\Hotels.Model.Common.pdb
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.csprojAssemblyReference.cache
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.csproj.CoreCompileInputs.cache
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.dll
+D:\PRAKSA\GitCopy\day6-day7\Hotels.Model.Common\obj\Debug\Hotels.Model.Common.pdb
