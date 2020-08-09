@@ -1,0 +1,51 @@
+
+table.Hotel {
+    border: 2px solid #A40808;
+    background-color: #EEE7DB;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  table.Hotel td, table.Hotel th {
+    border: 1px solid #DEB887;
+    padding: 3px 2px;
+  }
+  table.Hotel tbody td {
+    font-size: 15px;
+  }
+  table.Hotel tr:nth-child(even) {
+    background: #A9A9A9;
+  }
+  table.Hotel thead {
+    background: #A40808;
+  }
+  table.Hotel thead th {
+    font-size: 19px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #A40808;
+  }
+  table.Hotel thead th:first-child {
+    border-left: none;
+  }
+  
+  table.Hotel tfoot {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #A40808;
+  }
+  table.Hotel tfoot td {
+    font-size: 13px;
+  }
+  table.Hotel tfoot .links {
+    text-align: right;
+  }
+  table.Hotel tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    color: #A40808;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
